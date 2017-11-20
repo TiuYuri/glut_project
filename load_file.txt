@@ -1,0 +1,8 @@
+triangulo 0 2 0 2 0 0 -2 0 0 cor 1 0 0 0 1 0 0 0 1 translate 0 1 0
+triangulo 0 -2 0 2 0 0 -2 0 0 cor 0 0 1 translate 0 -1 0
+esfera 1 20 20 cor 1 0 0 translate 2 0 0
+esfera 1 100 100 cor 0 0 1 translate -2 0 0 wired
+cubo 2 cor 0 1 0 
+cubo 6 cor 1 0 0 wired
+quadrado -1 -1 0 -1 1 0 1 1 0 1 -1 0 translate 0 0 -2 cor 1 0 0 0 1 0 0 0 1 1 1 1
+cone 1 2 4 40 wired cor 0 0 1 translate 0 0 1
