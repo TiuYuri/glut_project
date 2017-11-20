@@ -4,6 +4,7 @@
 
 Triangulo::Triangulo(){ 
     nome = "triangulo";
+    isSelected = false;
     ponto1 = Ponto();
     ponto2 = Ponto();
     ponto3 = Ponto();
@@ -66,14 +67,25 @@ void Triangulo::render(){
     Ponto p3 = ponto3 + translate;
 
 glPushMatrix();
-glBegin(GL_TRIANGLES);
+if(isSelected){
+    glBegin(GL_TRIANGLES);
+    glColor3f(1.0f,0.0f,1.0f);
+    glVertex3f(p1.pontoX, p1.pontoY, p1.pontoZ);
+    glVertex3f(p2.pontoX, p2.pontoY, p2.pontoZ);
+    glVertex3f(p3.pontoX, p3.pontoY, p3.pontoZ);
+    glEnd();
+
+}else{
+    glBegin(GL_TRIANGLES);
     glColor3f(cor.corR,cor.corG,cor.corB);
     glVertex3f(p1.pontoX, p1.pontoY, p1.pontoZ);
     glColor3f(cor2.corR,cor2.corG,cor2.corB);
     glVertex3f(p2.pontoX, p2.pontoY, p2.pontoZ);
     glColor3f(cor3.corR,cor3.corG,cor3.corB);
     glVertex3f(p3.pontoX, p3.pontoY, p3.pontoZ);
-glEnd();
+    glEnd();
+}
+
 glPopMatrix();
 }
 

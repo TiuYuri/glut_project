@@ -2,6 +2,7 @@
 
 Cone::Cone(){ 
     nome = "cone";
+    isSelected = false;
     isSolid = true;
     base = 1;
     altura = 1;
@@ -34,7 +35,13 @@ void Cone::printer(){
 void Cone::render(){
     glPushMatrix();
     glTranslatef(translate.pontoX, translate.pontoY, translate.pontoZ);
-    glColor3f(cor.corR,cor.corG,cor.corB);
+
+    if(isSelected){
+        glColor3f(1.0f,0.0f,1.0f);
+    }else{
+        glColor3f(cor.corR,cor.corG,cor.corB);
+    }
+    
     if(isSolid){
         glutSolidCone(base, altura, cortes, pilha);
     } else{
@@ -42,13 +49,4 @@ void Cone::render(){
     }
     
     glPopMatrix();
-}
-
-vector<float> Cone::getColor(){
-    vector<float> cores;
-    cores.push_back(cor.corR);
-    cores.push_back(cor.corG);
-    cores.push_back(cor.corB);
-    
-    return cores;
 }

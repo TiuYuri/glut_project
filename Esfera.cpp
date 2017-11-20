@@ -2,6 +2,7 @@
 
 Esfera::Esfera(){ 
     nome = "esfera";
+    isSelected = false;
     raio = 1;
     cortes = 10;
     pilha = 10;
@@ -38,7 +39,13 @@ void Esfera::printer(){
 void Esfera::render(){
     glPushMatrix();
     glTranslatef(translate.pontoX, translate.pontoY, translate.pontoZ);
-    glColor3f(cor.corR,cor.corG,cor.corB);
+    
+    if(isSelected){
+        glColor3f(1.0f,0.0f,1.0f);
+    }else{
+        glColor3f(cor.corR,cor.corG,cor.corB);
+    }
+
     if(isSolid){
         glutSolidSphere(raio, cortes, pilha);
     } else{
@@ -48,11 +55,3 @@ void Esfera::render(){
     glPopMatrix();
 }
 
-vector<float> Esfera::getColor(){
-    vector<float> cores;
-    cores.push_back(cor.corR);
-    cores.push_back(cor.corG);
-    cores.push_back(cor.corB);
-    
-    return cores;
-}

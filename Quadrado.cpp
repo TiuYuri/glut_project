@@ -4,6 +4,7 @@
 
 Quadrado::Quadrado(){ 
     nome = "quadrado";
+    isSelected = false;
     ponto1 = Ponto();
     ponto2 = Ponto();
     ponto3 = Ponto();
@@ -65,16 +66,27 @@ void Quadrado::render(){
     Ponto p3 = ponto3 + translate;
     Ponto p4 = ponto4 + translate;
 glPushMatrix();
-glBegin(GL_QUADS);
-    glColor3f(cor.corR,cor.corG,cor.corB);
-    glVertex3f(p1.pontoX, p1.pontoY, p1.pontoZ);
-    glColor3f(cor2.corR,cor2.corG,cor2.corB);
-    glVertex3f(p2.pontoX, p2.pontoY, p2.pontoZ);
-    glColor3f(cor3.corR,cor3.corG,cor3.corB);
-    glVertex3f(p3.pontoX, p3.pontoY, p3.pontoZ);
-    glColor3f(cor4.corR,cor4.corG,cor4.corB);
-    glVertex3f(p4.pontoX, p4.pontoY, p4.pontoZ);
-glEnd();
+if(isSelected){
+    glBegin(GL_QUADS);
+        glColor3f(1.0f,0.0f,1.0f);
+        glVertex3f(p1.pontoX, p1.pontoY, p1.pontoZ);
+        glVertex3f(p2.pontoX, p2.pontoY, p2.pontoZ);
+        glVertex3f(p3.pontoX, p3.pontoY, p3.pontoZ);
+        glVertex3f(p4.pontoX, p4.pontoY, p4.pontoZ);
+    glEnd();
+}else{
+    glBegin(GL_QUADS);
+        glColor3f(cor.corR,cor.corG,cor.corB);
+        glVertex3f(p1.pontoX, p1.pontoY, p1.pontoZ);
+        glColor3f(cor2.corR,cor2.corG,cor2.corB);
+        glVertex3f(p2.pontoX, p2.pontoY, p2.pontoZ);
+        glColor3f(cor3.corR,cor3.corG,cor3.corB);
+        glVertex3f(p3.pontoX, p3.pontoY, p3.pontoZ);
+        glColor3f(cor4.corR,cor4.corG,cor4.corB);
+        glVertex3f(p4.pontoX, p4.pontoY, p4.pontoZ);
+    glEnd();
+}
+
 glPushMatrix();
 }
 

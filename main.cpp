@@ -60,7 +60,13 @@ void renderScene(void) {
 
 		//cout << cor_salva[0] << " " << cor_salva[1] << " " << cor_salva[2] << endl;
 	for(int i = 0; i < vetor_feliz.size(); i++){
+		if(i == ponteiro){
+			vetor_feliz[i]->isSelected = true;
 			vetor_feliz[i]->render();
+			vetor_feliz[i]->isSelected = false;
+		} else{
+			vetor_feliz[i]->render();
+		}
 	}
 
 
@@ -150,7 +156,7 @@ int main(int argc, char **argv) {
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100,100);
 	glutInitWindowSize(800,600);
-	glutCreateWindow("Lighthouse3D - GLUT Tutorial");
+	glutCreateWindow("coisa do trabalho trabalhoso");
 
 	// register callbacks
 	glutDisplayFunc(renderScene);
@@ -161,6 +167,18 @@ int main(int argc, char **argv) {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_POLYGON_SMOOTH_HINT);
 	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
+
+	//LIGHT
+	// GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	// GLfloat mat_shininess[] = { 50.0 };
+	// GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+	// glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	// glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	// glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+	// glEnable(GL_LIGHTING);
+	// glEnable(GL_LIGHT0);
+
 
 	// teclado
 

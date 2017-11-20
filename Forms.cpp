@@ -24,6 +24,10 @@ void Forms::move(float x, float y, float z){
 };
 
 vector<float> Forms::getColor(){
-    vector<float> vazio;
-    return vazio;
+    vector<float> cores;
+    cores.push_back(cor.corR);
+    cores.push_back(cor.corG);
+    cores.push_back(cor.corB);
+    
+    return cores;
 }

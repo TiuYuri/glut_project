@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include <vector>
 #include "Ponto.hpp"
 #include "Color.hpp"
 
@@ -12,6 +11,7 @@ class Forms
         string nome;
         Ponto translate;
         Color cor;
+        bool isSelected;
 
     virtual void printer();
     virtual void render();

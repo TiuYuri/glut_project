@@ -2,6 +2,7 @@
 
 Cubo::Cubo(){ 
     nome = "cubo";
+    isSelected = false;
     isSolid = true;
     tamanho = 1;
 
@@ -30,7 +31,13 @@ void Cubo::printer(){
 void Cubo::render(){
     glPushMatrix();
     glTranslatef(translate.pontoX, translate.pontoY, translate.pontoZ);
-    glColor3f(cor.corR,cor.corG,cor.corB);
+    
+    if(isSelected){
+        glColor3f(1.0f,0.0f,1.0f);
+    }else{
+        glColor3f(cor.corR,cor.corG,cor.corB);
+    }
+
     if(isSolid){
         glutSolidCube(tamanho);
     } else{
@@ -38,13 +45,4 @@ void Cubo::render(){
     }
     
     glPopMatrix();
-}
-
-vector<float> Cubo::getColor(){
-    vector<float> cores;
-    cores.push_back(cor.corR);
-    cores.push_back(cor.corG);
-    cores.push_back(cor.corB);
-    
-    return cores;
 }

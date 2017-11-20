@@ -1,10 +1,5 @@
 #pragma once
-#include <iostream>
 #include "Forms.hpp"
-#include "Ponto.hpp"
-#include "Color.hpp"
-#include <GL/glut.h>
-#include <vector>
 
 class Triangulo : public Forms
 {
